@@ -1,7 +1,7 @@
 {
   "development": {
-    "storage": "../Zeus.db                                                                                                                          ",
-    "dialect": "sqlite"
+    "storage": "../Zeus.db",
+    "dialect": "sqlite3"
   },
   "test": {
     "username": "root",
