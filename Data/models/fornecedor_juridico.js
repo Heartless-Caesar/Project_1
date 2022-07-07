@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class fornecedor_fisico extends Model {
+  class fornecedor_juridico extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,14 +11,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  fornecedor_fisico.init(
+  fornecedor_juridico.init(
     {
-      nome: DataTypes.STRING,
-      cpf: DataTypes.INTEGER,
-      data_de_nascimento: DataTypes.DATE,
-      sexo: DataTypes.ENUM("Masculino", "Feminino", "Outro"),
+      razao_social: DataTypes.STRING,
+      nome_fantasia: DataTypes.STRING,
+      cnpj: DataTypes.INTEGER,
+      num_inscricao_municipal: DataTypes.INTEGER,
+      num_inscricao_estadual: DataTypes.INTEGER,
       cep: DataTypes.INTEGER,
-      rua_avenida: DataTypes.STRING,
+      rua_ou_avenida: DataTypes.STRING,
       complemento: DataTypes.STRING,
       numero: DataTypes.INTEGER,
       estado: DataTypes.ENUM(
@@ -50,14 +51,14 @@ module.exports = (sequelize, DataTypes) => {
         "Tocantins - TO",
         "Distrito Federal - DF"
       ),
-      cidade: DataTypes.STRING,
-      telefone: DataTypes.NUMBER,
+      cidade: DataTypes.ENUM,
+      telefone: DataTypes.INTEGER,
       email: DataTypes.STRING,
     },
     {
       sequelize,
-      modelName: "fornecedor_fisico",
+      modelName: "fornecedor_juridico",
     }
   );
-  return fornecedor_fisico;
+  return fornecedor_juridico;
 };
