@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         "Tocantins - TO",
         "Distrito Federal - DF"
       ),
-      cidade: DataTypes.ENUM,
+      cidade: DataTypes.STRING,
       telefone: DataTypes.INTEGER,
       email: DataTypes.STRING,
     },
