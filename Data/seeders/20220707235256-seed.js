@@ -127,6 +127,5 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.dropTable("fornecedor_fisicos");
   },
 };
