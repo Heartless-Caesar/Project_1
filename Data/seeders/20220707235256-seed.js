@@ -127,5 +127,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    return queryInterface.bulkDelete("fornecedor_fisicos", null, {});
   },
 };

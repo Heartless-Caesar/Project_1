@@ -1,6 +1,6 @@
 {
   "development": {
-    "storage": "../../Zeus.db",
+    "storage": "../Zeus.db",
     "dialect": "sqlite"
   },
   "test": {
