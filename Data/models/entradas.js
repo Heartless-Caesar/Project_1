@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class entradas extends Model {
     /**
@@ -9,12 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      entradas.belongsTo(models.fornecedor_fisico, {
+        foreignKey: "fk_id_fornecedor_fisico",
+      });
+      entradas.belongsTo(models.fornecedor_juridico, {
+        foreignKey: "fk_id_fornecedor_juridico",
+      });
     }
   }
   entradas.init(
     {
       quantidade: DataTypes.INTEGER,
-      fk_id_fornecedor: DataTypes.INTEGER,
+      fk_id_fornecedor_fisico: DataTypes.INTEGER,
+      fk_id_fornecedor_juridico: DataTypes.INTEGER,
     },
     {
       sequelize,
