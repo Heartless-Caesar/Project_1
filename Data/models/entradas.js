@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   entradas.init(
     {
-      id: DataTypes.INTEGER,
       quantidade: DataTypes.INTEGER,
       fk_id_fornecedor: DataTypes.INTEGER,
     },
