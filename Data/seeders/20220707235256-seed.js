@@ -28,6 +28,8 @@ module.exports = {
           cidade: "Wright",
           telefone: "+55 (931) 497-3190",
           email: "gouldmcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           nome: "Alisha",
@@ -43,6 +45,8 @@ module.exports = {
           cidade: "Washington",
           telefone: "+55 (892) 521-3440",
           email: "alishamcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           nome: "Madeleine",
@@ -58,6 +62,8 @@ module.exports = {
           cidade: "Allendale",
           telefone: "+55 (991) 562-2350",
           email: "madeleinemcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           nome: "Roberts",
@@ -73,6 +79,8 @@ module.exports = {
           cidade: "Dennard",
           telefone: "+55 (993) 487-3473",
           email: "robertsmcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           nome: "Kirsten",
@@ -87,6 +95,8 @@ module.exports = {
           cidade: "Lookingglass",
           telefone: "+55 (830) 560-3050",
           email: "kirstenmcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           nome: "Avery",
@@ -102,6 +112,8 @@ module.exports = {
           cidade: "Trexlertown",
           telefone: "+55 (841) 581-3346",
           email: "averymcfadden@quarex.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

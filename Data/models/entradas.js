@@ -11,18 +11,18 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       entradas.belongsTo(models.fornecedor_fisico, {
-        foreignKey: "fk_id_fornecedor_fisico",
+        foreignKey: "id",
+        keyType: DataTypes.INTEGER,
       });
       entradas.belongsTo(models.fornecedor_juridico, {
-        foreignKey: "fk_id_fornecedor_juridico",
+        foreignKey: "id",
+        keyType: DataTypes.INTEGER,
       });
     }
   }
   entradas.init(
     {
       quantidade: DataTypes.INTEGER,
-      fk_id_fornecedor_fisico: DataTypes.INTEGER,
-      fk_id_fornecedor_juridico: DataTypes.INTEGER,
     },
     {
       sequelize,
