@@ -3,6 +3,8 @@ const { sequelize } = require("./Data/models/index");
 const app = express();
 const port = 5000;
 
+app.use(express.json());
+
 const start = async () => {
   try {
     await sequelize.sync({ force: true });
