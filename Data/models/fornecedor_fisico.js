@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       fornecedor_fisico.hasMany(models.entradas);
+      fornecedor_fisico.belongsTo(models.usuario, {
+        foreignKey: { name: "criado_por" },
+        keyType: DataTypes.INTEGER,
+      });
     }
   }
   fornecedor_fisico.init(

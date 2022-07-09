@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         keyType: DataTypes.INTEGER,
       });
+      entradas.belongsTo(models.usuario, {
+        foreignKey: { name: "criado_por" },
+        keyType: DataTypes.INTEGER,
+      });
     }
   }
   entradas.init(

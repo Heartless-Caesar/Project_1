@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       usuario.hasMany(models.resultado_creme, {
         foreignKey: { name: "usuarioId" },
       });
+      usuario.hasMany(models.entradas, { foreignKey: { name: "usuarioId" } });
     }
   }
   usuario.init(
