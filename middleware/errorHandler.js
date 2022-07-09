@@ -24,3 +24,5 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
   return res.status(customError.statusCode).message(customError.message);
 };
+
+module.exports = { errorHandlerMiddleware };
