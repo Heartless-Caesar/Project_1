@@ -26,12 +26,6 @@ const cadastrar_fornecedor_fisico = async (req, res) => {
     email,
   });
 
-  if (!novoUsuario) {
-    return res
-      .status(StatusCodes.BAD_REQUEST())
-      .json({ msg: "Algo de errado ocorreu ao criar o forencedor" });
-  }
-
   res
     .status(StatusCodes.CREATED)
     .json({ msg: "Fornecedor fisico criado", fornecedor_fisico: novoUsuario });
