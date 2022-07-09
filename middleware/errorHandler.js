@@ -6,7 +6,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     message: err.message || "Something went wrong...",
   };
 
-  if (err.name === "Validation error") {
+  if (err.name === "ValidationError" || "Validation error") {
     customError.message = Object.values(err.errors)
       .map((x) => x.message)
       .join(",");
@@ -22,6 +22,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.message = "Email ou senha invalidos";
     customError.statusCode = 401;
   }
+
   return res.status(customError.statusCode).message(customError.message);
 };
 
