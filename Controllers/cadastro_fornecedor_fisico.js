@@ -17,7 +17,7 @@ const cadastrar_fornecedor_fisico = async (req, res) => {
   } = req.body;
 
   try {
-    let novoUsuario = await fornecedor_fisico.create({
+    let novo_fornecedor_juridico = await fornecedor_fisico.create({
       nome: nome,
       cpf: cpf,
       data_de_nascimento: data_de_nascimento,
@@ -32,7 +32,7 @@ const cadastrar_fornecedor_fisico = async (req, res) => {
     });
     res.status(StatusCodes.CREATED).json({
       msg: "Fornecedor fisico criado",
-      fornecedor_fisico: novoUsuario,
+      fornecedor_fisico: novo_fornecedor_juridico,
     });
   } catch (error) {
     console.log(error);
