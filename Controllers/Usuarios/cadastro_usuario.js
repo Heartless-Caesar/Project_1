@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
-const cadastrar_usuario = async (req, res) => {
+const cadastro_usuario = async (req, res) => {
   const { email, password } = req.body;
 
   const duplicate = await usuario.findOne({ where: { email: email } });
@@ -43,4 +43,4 @@ const cadastrar_usuario = async (req, res) => {
     .json({ msg: "Usuário cadastrado", usuario: novoUsuario });
 };
 
-module.exports = { cadastrar_usuario };
+module.exports = { cadastro_usuario };
