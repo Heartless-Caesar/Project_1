@@ -1,12 +1,9 @@
-//TODO: Add system users email table for verification on registration,
-//this auxiliary table will be used so that a user's password will be hashed
-//and salted by the string of their choice
-
-//If <provided email> is in aux email table the user will register with their password of choice
-const { StatusCodes } = require("http-status-codes");
 const { email_autorizados, usuario } = require("../../Data/models");
+const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
+
 const cadastrar_usuario = async (req, res) => {
   const { email, password } = req.body;
 
@@ -37,7 +34,15 @@ const cadastrar_usuario = async (req, res) => {
     role: checkEmail.role,
   });
 
+  const token = jwt.sign(
+    { id: novoUsuario.id, email: novoUsuario.email },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.EXPIRES_IN }
+  );
+
   res
     .status(StatusCodes.CREATED)
     .json({ msg: "Usuário cadastrado", usuario: novoUsuario });
 };
+
+module.exports = { cadastrar_usuario };
