@@ -5,7 +5,7 @@ const {
 } = require("../Controllers/Cadastro_Fornecedores/cadastro_fornecedor_fisico");
 const {
   cadastrar_fornecedor_juridico,
-} = require("../Controllers/Cadastro_Fornecedores/cadastro_fornecedor-juridico");
+} = require("../Controllers/Cadastro_Fornecedores/cadastro_fornecedor_juridico");
 
 provider_router
   .route("/fornecedor/fisico/cadastro")

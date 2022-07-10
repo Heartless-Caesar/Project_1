@@ -34,11 +34,9 @@ const cadastrar_usuario = async (req, res) => {
     role: checkEmail.role,
   });
 
-  const token = jwt.sign(
-    { id: novoUsuario.id, email: novoUsuario.email },
-    process.env.JWT_SECRET,
-    { expiresIn: process.env.EXPIRES_IN }
-  );
+  const token = jwt.sign({ email: novoUsuario.email }, process.env.JWT_SECRET, {
+    expiresIn: process.env.EXPIRES_IN,
+  });
 
   res
     .status(StatusCodes.CREATED)
