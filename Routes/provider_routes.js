@@ -2,10 +2,10 @@ const express = require("express");
 const provider_router = express.Router();
 const {
   cadastrar_fornecedor_fisico,
-} = require("../Controllers/cadastro_fornecedor_fisico");
+} = require("../Controllers/Cadastro_Fornecedores/cadastro_fornecedor_fisico");
 const {
   cadastrar_fornecedor_juridico,
-} = require("../Controllers/cadastro_fornecedor-juridico");
+} = require("../Controllers/Cadastro_Fornecedores/cadastro_fornecedor-juridico");
 
 provider_router
   .route("/fornecedor/fisico/cadastro")

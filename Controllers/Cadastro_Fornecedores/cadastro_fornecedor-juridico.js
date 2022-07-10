@@ -1,5 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
-const { fornecedor_juridico } = require("../Data/models");
+const { fornecedor_juridico } = require("../../Data/models");
 
 const cadastrar_fornecedor_juridico = async (req, res) => {
   const {
