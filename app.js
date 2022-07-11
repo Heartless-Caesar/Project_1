@@ -1,4 +1,5 @@
 const { provider_router } = require("./Routes/provider_routes");
+const { authMiddleware } = require("./middleware/authMiddleware");
 const { user_router } = require("./Routes/user_routes");
 const { sequelize } = require("./Data/models/index");
 const bodyParser = require("body-parser");
@@ -9,8 +10,8 @@ const port = 5000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(user_router, authMiddleware);
 app.use(provider_router);
-app.use(user_router);
 
 const start = async () => {
   try {
