@@ -5,24 +5,50 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 const cadastro_usuario = async (req, res) => {
-  const { email, password } = req.body;
+  const { registerEmail, password } = req.body;
 
-  const duplicate = await usuario.findOne({ where: { email: email } });
+  const duplicate = await usuario.findOne({ where: { email: registerEmail } });
 
   if (duplicate) {
-    return res
-      .status(StatusCodes.BAD_REQUEST)
-      .json({ msg: `O email ${email} já possui uma conta cadastrada.` });
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      msg: `O email ${registerEmail} já possui uma conta cadastrada.`,
+    });
   }
 
+  // Admin creation
+  //   if (registerEmail === "admin2@email.com") {
+  //     const salt = await bcrypt.genSalt(10);
+  //     const hashedPassword = await bcrypt.hash(password, salt);
+
+  //     const adminAcc = await usuario.create({
+  //       email: registerEmail,
+  //       password: hashedPassword,
+  //       role: "Admin",
+  //     });
+
+  //   const token = jwt.sign({ email: adminAcc.email }, process.env.JWT_SECRET, {
+  //     expiresIn: process.env.EXPIRES_IN,
+  //   });
+
+  //   return res.status(StatusCodes.CREATED).json({
+  //     msg: "Usuário cadastrado",
+  //     usuario: adminAcc,
+  //     token: token,
+  //   });
+  // };
+
   const checkEmail = await email_autorizados.findOne({
-    where: { email: email },
+    where: { email: registerEmail },
   });
 
   if (!checkEmail) {
-    return res
-      .status(StatusCodes.UNAUTHORIZED)
-      .json({ msg: "Email não válido, procure um responsável pelo sistema" });
+    const all = await email_autorizados.findAll();
+    console.log(all);
+    console.log(checkEmail);
+    return res.status(StatusCodes.UNAUTHORIZED).json({
+      msg: "Email não válido, procure um responsável pelo sistema",
+      checkEmail: checkEmail,
+    });
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -38,9 +64,10 @@ const cadastro_usuario = async (req, res) => {
     expiresIn: process.env.EXPIRES_IN,
   });
 
-  res
-    .status(StatusCodes.CREATED)
-    .json({ msg: "Usuário cadastrado", usuario: novoUsuario });
+  res.status(StatusCodes.CREATED).json({
+    msg: "Usuário cadastrado",
+    usuario: novoUsuario.email,
+    token: token,
+  });
 };
-
 module.exports = { cadastro_usuario };
