@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 app.use(user_router, authMiddleware);
 app.use(provider_router);
 
+//Catch exceptions so that app doesn't crash
+process.on("uncaughtException", (err) => {
+  console.error(err && err.stack);
+});
+
 const start = async () => {
   try {
     await sequelize.sync({ force: true });

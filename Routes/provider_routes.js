@@ -14,6 +14,7 @@ const { verifyRoles } = require("../middleware/verifyRoles");
 provider_router
   .route("/fornecedor/fisico/cadastro")
   .post(verifyRoles("Admin"), cadastrar_fornecedor_fisico);
+
 provider_router
   .route("/fornecedor/juridico/cadastro")
   .post(cadastrar_fornecedor_juridico);
