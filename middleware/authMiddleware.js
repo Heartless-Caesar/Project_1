@@ -19,7 +19,7 @@ const authMiddleware = async (req, res, next) => {
 
         //Auth header sending the email and user role
         req.user = { email: user.email }
-        req.roles = { roles: user.role }
+        req.roles = { roles: user.roles }
 
         next()
     } catch (error) {

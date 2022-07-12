@@ -12,7 +12,7 @@ const verifyRoles = (...allowedRoles) => {
         console.log(rolesArray)
         console.log(req.roles)
 
-        const result = req.roles
+        const result = Array.from(req.roles)
             .map((x) => rolesArray.includes(x))
             .find((val) => val === true)
 

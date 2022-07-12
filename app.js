@@ -10,8 +10,9 @@ const port = 5000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(user_router, authMiddleware)
-app.use(provider_router)
+app.use(user_router)
+
+app.use(authMiddleware, provider_router)
 
 //Catch exceptions so that app doesn't crash
 process.on('uncaughtException', (err) => {

@@ -16,26 +16,30 @@ const cadastro_usuario = async (req, res) => {
     }
 
     // Admin creation
-    //   if (registerEmail === "admin2@email.com") {
-    //     const salt = await bcrypt.genSalt(10);
-    //     const hashedPassword = await bcrypt.hash(password, salt);
+    if (registerEmail === 'admin2@email.com') {
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password, salt)
 
-    //     const adminAcc = await usuario.create({
-    //       email: registerEmail,
-    //       password: hashedPassword,
-    //       role: "Admin",
-    //     });
+        const adminAcc = await usuario.create({
+            email: registerEmail,
+            password: hashedPassword,
+            role: 'Admin',
+        })
 
-    //   const token = jwt.sign({ email: adminAcc.email }, process.env.JWT_SECRET, {
-    //     expiresIn: process.env.EXPIRES_IN,
-    //   });
+        const token = jwt.sign(
+            { email: adminAcc.email, role: adminAcc.roles },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: process.env.EXPIRES_IN,
+            }
+        )
 
-    //   return res.status(StatusCodes.CREATED).json({
-    //     msg: "Usuário cadastrado",
-    //     usuario: adminAcc,
-    //     token: token,
-    //   });
-    // };
+        return res.status(StatusCodes.CREATED).json({
+            msg: 'Usuário cadastrado',
+            usuario: adminAcc,
+            token: token,
+        })
+    }
 
     const checkEmail = await email_autorizados.findOne({
         where: { email: registerEmail },
