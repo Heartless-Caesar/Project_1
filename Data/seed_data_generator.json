@@ -1,18 +1,18 @@
 [
-  "{{repeat(5, 10)}}",
-  {
-    "id": "{{integer()}}",
-    "nome": "{{firstName()}}",
-    "cpf": "{{integer(100000000000,999999999999)}}",
-    "data_de_nascimento": "{{date(new Date(2022, 0, 1), new Date(), \"YYYY-MM-dd Thh:mm:ss Z\")}}",
-    "sexo": "{{random(\"Masculino\", \"Feminino\", \"Outro\")}}",
-    "cep": "{{integer(10000000,99999999)}}",
-    "rua_ou_avenida": "{{street()}}",
-    "complemento": "{{lorem()}}",
-    "numero": "{{integer(1,999)}}",
-    "estado": "{{state()}}",
-    "cidade": "{{city()}}",
-    "telefone": "+55 {{phone()}}",
-    "email": "{{email()}}"
-  }
+    "{{repeat(5, 10)}}",
+    {
+        "id": "{{integer()}}",
+        "nome": "{{firstName()}}",
+        "cpf": "{{integer(100000000000,999999999999)}}",
+        "data_de_nascimento": "{{date(new Date(2022, 0, 1), new Date(), \"YYYY-MM-dd Thh:mm:ss Z\")}}",
+        "sexo": "{{random(\"Masculino\", \"Feminino\", \"Outro\")}}",
+        "cep": "{{integer(10000000,99999999)}}",
+        "rua_ou_avenida": "{{street()}}",
+        "complemento": "{{lorem()}}",
+        "numero": "{{integer(1,999)}}",
+        "estado": "{{state()}}",
+        "cidade": "{{city()}}",
+        "telefone": "+55 {{phone()}}",
+        "email": "{{email()}}"
+    }
 ]
