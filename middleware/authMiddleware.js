@@ -17,14 +17,9 @@ const authMiddleware = async (req, res, next) => {
     try {
         const user = jwt.verify(token, process.env.JWT_SECRET)
 
-        console.log('Auth middleware ' + user)
-
-        //TODO this roles variable causes an error, investigate why
-        //const roles = Object.values(user.role)
-
         //Auth header sending the email and user role
         req.user = user.UserInfo.email
-        //req.roles = user.UserInfo.roles
+        req.roles = [user.UserInfo.roles]
 
         next()
     } catch (error) {

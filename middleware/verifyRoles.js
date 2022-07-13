@@ -17,8 +17,6 @@ const verifyRoles = (...allowedRoles) => {
             .map((x) => rolesArray.includes(x))
             .find((val) => val === true)
 
-        console.log('Result =' + result)
-
         if (!result) {
             return res
                 .status(StatusCodes.UNAUTHORIZED)

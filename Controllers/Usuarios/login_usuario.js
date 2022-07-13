@@ -33,17 +33,15 @@ const login_usuario = async (req, res) => {
             .json({ msg: 'A senha inserida não está correta' })
     }
 
-    const roles = Object.values(usuarioDb.role)
+    const userRoles = usuarioDb.role
 
     const token = jwt.sign(
-        { UserInfo: { email: usuarioDb.email, roles: roles } },
+        { UserInfo: { email: usuarioDb.email, roles: userRoles } },
         process.env.JWT_SECRET,
         {
             expiresIn: process.env.EXPIRES_IN,
         }
     )
-
-    console.log('Login ' + usuarioDb)
 
     res.status(StatusCodes.OK).json({
         msg: 'usuario logado',
