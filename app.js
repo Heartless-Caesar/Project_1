@@ -14,7 +14,7 @@ app.use(user_router)
 
 app.use(authMiddleware, provider_router)
 
-//Catch exceptions so that app doesn't crash
+//Catch exceptions, in development, so that app doesn't crash
 // process.on('uncaughtException', (err) => {
 //     console.error(err && err.stack)
 // })

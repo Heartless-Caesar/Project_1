@@ -18,25 +18,36 @@ const cadastrar_fornecedor_fisico = async (req, res) => {
     } = req.body
 
     //CRIAÇÃO DE FORNECEDOR FISICO
-    let novo_fornecedor_juridico = await fornecedor_fisico.create({
-        nome: nome,
-        cpf: cpf,
-        data_de_nascimento: data_de_nascimento,
-        sexo: sexo,
-        cep: cep,
-        rua_ou_avenida: rua_ou_avenida,
-        numero: numero,
-        estado: estado,
-        cidade: cidade,
-        telefone: telefone,
-        email: email,
-    })
+    try {
+        let novo_fornecedor_fisico = await fornecedor_fisico.create({
+            nome: nome,
+            cpf: cpf,
+            data_de_nascimento: data_de_nascimento,
+            sexo: sexo,
+            cep: cep,
+            rua_ou_avenida: rua_ou_avenida,
+            numero: numero,
+            estado: estado,
+            cidade: cidade,
+            telefone: telefone,
+            email: email,
+        })
 
-    //RESPOSTA CASO TUDO OCORRA NORMALMENTE
-    res.status(StatusCodes.CREATED).json({
-        msg: 'Fornecedor fisico criado',
-        fornecedor_fisico: novo_fornecedor_juridico,
-    })
+        //RESPOSTA CASO TUDO OCORRA NORMALMENTE
+        res.status(StatusCodes.CREATED).json({
+            msg: 'Fornecedor fisico criado',
+            fornecedor_fisico: novo_fornecedor_fisico,
+        })
+    } catch (error) {
+        const errorMessages = []
+
+        error.errors.forEach((x) => errorMessages.push(x.message))
+
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            msg: 'Something went wrong in provider creation',
+            errors: errorMessages,
+        })
+    }
 }
 
 module.exports = { cadastrar_fornecedor_fisico }

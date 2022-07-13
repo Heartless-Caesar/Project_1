@@ -32,13 +32,19 @@ const cadastrar_fornecedor_juridico = async (req, res) => {
             telefone: telefone,
             email: email,
         })
-        res.status(StatusCodes.CREATED).json({
+        return res.status(StatusCodes.CREATED).json({
             msg: 'Fornecedor juridico criado',
             fornecedor_juridico: novoUsuario,
         })
     } catch (error) {
-        console.log(error)
-        res.status(StatusCodes.BAD_REQUEST).json({ msg: error.message })
+        const errorMessages = []
+
+        error.errors.forEach((x) => errorMessages.push(x.message))
+
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            msg: 'Something went wrong in provider creation',
+            errors: errorMessages,
+        })
     }
 }
 
