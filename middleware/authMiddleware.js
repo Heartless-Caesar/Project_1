@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken')
 const authMiddleware = async (req, res, next) => {
     const authHeader = req.headers.authorization
 
-    if (!authHeader) {
+    console.log(authHeader)
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res
             .status(StatusCodes.UNAUTHORIZED)
             .json({ msg: 'No auth header found' })
@@ -15,19 +17,20 @@ const authMiddleware = async (req, res, next) => {
     try {
         const user = jwt.verify(token, process.env.JWT_SECRET)
 
-        console.log(user)
+        console.log('Auth middleware ' + user)
+
+        //TODO this roles variable causes an error, investigate why
+        //const roles = Object.values(user.role)
 
         //Auth header sending the email and user role
-        req.user = { email: user.email }
-        req.roles = { roles: user.roles }
+        req.user = user.UserInfo.email
+        //req.roles = user.UserInfo.roles
 
         next()
     } catch (error) {
-        console.log(req.headers.authorization)
-
-        return res
-            .status(StatusCodes.UNAUTHORIZED)
-            .json({ msg: 'No auth header found' })
+        return res.status(StatusCodes.UNAUTHORIZED).json({
+            msg: 'Something went wrong in auth verification middleware',
+        })
     }
 }
 

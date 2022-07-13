@@ -23,7 +23,7 @@ const cadastro_usuario = async (req, res) => {
         const adminAcc = await usuario.create({
             email: registerEmail,
             password: hashedPassword,
-            role: 'Admin',
+            role: 2001,
         })
 
         const token = jwt.sign(

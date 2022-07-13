@@ -1,3 +1,4 @@
+//TODO Find out why 'result' is undefined
 const { StatusCodes } = require('http-status-codes')
 
 const verifyRoles = (...allowedRoles) => {
@@ -12,9 +13,11 @@ const verifyRoles = (...allowedRoles) => {
         console.log(rolesArray)
         console.log(req.roles)
 
-        const result = Array.from(req.roles)
+        const result = req.roles
             .map((x) => rolesArray.includes(x))
             .find((val) => val === true)
+
+        console.log('Result =' + result)
 
         if (!result) {
             return res

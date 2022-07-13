@@ -15,9 +15,9 @@ app.use(user_router)
 app.use(authMiddleware, provider_router)
 
 //Catch exceptions so that app doesn't crash
-process.on('uncaughtException', (err) => {
-    console.error(err && err.stack)
-})
+// process.on('uncaughtException', (err) => {
+//     console.error(err && err.stack)
+// })
 
 const start = async () => {
     try {
