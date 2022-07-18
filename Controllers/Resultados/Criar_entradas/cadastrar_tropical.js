@@ -1,7 +1,7 @@
 const { StatusCodes } = require('http-status-codes')
 const { resultado_tropical } = require('../../Data/models')
 
-const entrada_tropical = async (req, res) => {
+const cadastrar_tropical = async (req, res) => {
     const { data_da_producao, quantidade_produzida } = req.body
 
     try {
@@ -25,4 +25,4 @@ const entrada_tropical = async (req, res) => {
     }
 }
 
-module.exports = { entrada_tropical }
+module.exports = { cadastrar_tropical }

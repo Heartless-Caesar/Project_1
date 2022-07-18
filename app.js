@@ -1,9 +1,14 @@
-const { provider_router } = require('./Routes/provider_routes')
 const { authMiddleware } = require('./middleware/authMiddleware')
+const { provider_router } = require('./Routes/provider_routes')
 const { user_router } = require('./Routes/user_routes')
 const { sequelize } = require('./Data/models/index')
 const bodyParser = require('body-parser')
 const express = require('express')
+const { creme_create_router } = require('./Routes/Create_Entries/create_creme')
+const { muss_create_router } = require('./Routes/Create_Entries/create_muss')
+const {
+    tropical_create_router,
+} = require('./Routes/Create_Entries/create_tropical')
 const app = express()
 const port = 5000
 
@@ -12,7 +17,13 @@ app.use(bodyParser.json())
 
 app.use(user_router)
 
-app.use(authMiddleware, provider_router)
+app.use(
+    authMiddleware,
+    provider_router,
+    creme_create_router,
+    muss_create_router,
+    tropical_create_router
+)
 
 //Catch exceptions, in development, so that app doesn't crash
 // process.on('uncaughtException', (err) => {
