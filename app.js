@@ -10,10 +10,13 @@ const {
     tropical_create_router,
 } = require('./Routes/Create_Entries/create_tropical')
 const app = express()
+
 const port = 5000
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.use(cors())
 
 app.use(user_router)
 

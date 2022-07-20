@@ -15,14 +15,14 @@ A aplicação será desenvolvida em Javascript tanto no frontend quanto no backe
 
 #### Dependências
 
-- `bcrypt: ^5.0.1,`
-- `body-parser: ^1.20.0,`
-- `dotenv: ^16.0.1,`
-- `express: ^4.18.1,`
-- `http-status-codes: ^2.2.0,`
-- `jsonwebtoken: ^8.5.1,`
-- `sequelize: ^6.21.2,`
-- `sequelize-cli: ^6.4.1`
+-   `bcrypt: ^5.0.1,`
+-   `body-parser: ^1.20.0,`
+-   `dotenv: ^16.0.1,`
+-   `express: ^4.18.1,`
+-   `http-status-codes: ^2.2.0,`
+-   `jsonwebtoken: ^8.5.1,`
+-   `sequelize: ^6.21.2,`
+-   `sequelize-cli: ^6.4.1`
 
 ## Como executar a aplicação
 
@@ -32,13 +32,13 @@ A aplicação será desenvolvida em Javascript tanto no frontend quanto no backe
 
 **2. Quando o repositório estiver clonado:**
 
-- Ir até o diretório em que foi clonado:
-  `cd <SEU_DIRETORIO_AQUI>`
+-   Ir até o diretório em que foi clonado:
+    `cd <SEU_DIRETORIO_AQUI>`
 
-- Para instalar as dependências:
-  `npm install`
+-   Para instalar as dependências:
+    `npm install`
 
-- Executar a aplicação:
-  `npm start ou 'node .'`
+-   Executar a aplicação:
+    `npm start ou 'node .'`
 
 **3. Parabéns, agora você pode utilizar os endpoints em seu frontend**
