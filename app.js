@@ -9,6 +9,7 @@ const { muss_create_router } = require('./Routes/Create_Entries/create_muss')
 const {
     tropical_create_router,
 } = require('./Routes/Create_Entries/create_tropical')
+const { client_router } = require('./Routes/Client_Routes/client_routes')
 const app = express()
 
 const port = 5000
@@ -25,6 +26,7 @@ app.use(
     provider_router,
     creme_create_router,
     muss_create_router,
+    client_router,
     tropical_create_router
 )
 
