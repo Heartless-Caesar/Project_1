@@ -1,7 +1,7 @@
-const { resultado_creme } = require('../../Data/models')
+const { resultado_creme } = require('../../../Data/models')
 const { StatusCodes } = require('http-status-codes')
 
-const cadastrar_creme = async (res, res) => {
+const cadastrar_creme = async (req, res) => {
     const { data_da_producao, quantidade_produzida } = req.body
 
     try {

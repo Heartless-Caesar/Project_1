@@ -17,8 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     }
     resultado_mussarela.init(
         {
-            data_da_producao: DataTypes.DATE,
-            quantidade_produzida: DataTypes.INTEGER,
+            data_da_producao: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            quantidade_produzida: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
             valor_da_pesagem: DataTypes.INTEGER,
             valor_medio_por_peca: DataTypes.INTEGER,
         },

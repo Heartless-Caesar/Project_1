@@ -10,13 +10,9 @@ const buscar_todo_creme = async (req, res) => {
             entradas: getAll,
         })
     } catch (error) {
-        const errorMessages = []
-
-        error.errors.forEach((x) => errorMessages.push(x.message))
-
         return res.status(StatusCodes.BAD_REQUEST).json({
             msg: 'Algo deu errado ao tentar buscar todas as entradas',
-            errors: errorMessages,
+            errors: error,
         })
     }
 }

@@ -18,7 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     }
     fornecedor_juridico.init(
         {
-            razao_social: DataTypes.STRING,
+            razao_social: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             nome_fantasia: DataTypes.STRING,
             cnpj: DataTypes.INTEGER,
             num_inscricao_municipal: DataTypes.INTEGER,

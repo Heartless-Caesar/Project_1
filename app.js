@@ -11,7 +11,7 @@ const {
 } = require('./Routes/Create_Entries/create_tropical')
 const { client_router } = require('./Routes/Client_Routes/client_routes')
 const app = express()
-
+const cors = require('cors')
 const port = 5000
 
 app.use(bodyParser.urlencoded({ extended: false }))

@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const { resultado_tropical } = require('../../Data/models')
+const { resultado_tropical } = require('../../../Data/models')
 
 const cadastrar_tropical = async (req, res) => {
     const { data_da_producao, quantidade_produzida } = req.body

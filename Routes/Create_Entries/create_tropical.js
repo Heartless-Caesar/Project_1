@@ -8,6 +8,6 @@ const {
 
 tropical_create_router
     .route('entrada/tropical')
-    .post(verifyRoles[('Admin', 'Secretaria')], cadastrar_tropical)
+    .post(verifyRoles('Admin', 'Secretaria'), cadastrar_tropical)
 
 module.exports = { tropical_create_router }

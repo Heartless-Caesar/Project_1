@@ -15,13 +15,9 @@ const buscar_creme_single = async (req, res) => {
 
         res.status(StatusCodes.OK).json({ entrada: entrada })
     } catch (error) {
-        const errorMessages = []
-
-        error.errors.forEach((x) => errorMessages.push(x.message))
-
         return res.status(StatusCodes.BAD_REQUEST).json({
             msg: 'Algo deu errado ao tentar buscar uma entrada específica',
-            errors: errorMessages,
+            errors: error,
         })
     }
 }

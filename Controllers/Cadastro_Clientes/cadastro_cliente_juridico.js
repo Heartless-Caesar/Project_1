@@ -37,13 +37,13 @@ const cadastrar_cliente_juridico = async (req, res) => {
             cliente_juridico: novoCliente,
         })
     } catch (error) {
-        //const errorMessages = []
+        const errorMessages = []
 
-        //error.errors.forEach((x) => errorMessages.push(x.message))
+        error.errors.forEach((x) => errorMessages.push(x.message))
 
         return res.status(StatusCodes.BAD_REQUEST).json({
             msg: 'Something went wrong in client creation',
-            errors: error,
+            errors: errorMessages,
         })
     }
 }

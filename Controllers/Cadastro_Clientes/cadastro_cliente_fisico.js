@@ -41,14 +41,14 @@ const cadastrar_cliente_fisico = async (req, res) => {
             cliente_fisico: novo_cliente_fisico,
         })
     } catch (error) {
-        console.log(error)
+        //console.log(error)
         const errorMessages = []
 
-        //error.errors.forEach((x) => errorMessages.push(x.message))
+        error.errors.forEach((x) => errorMessages.push(x.message))
 
         return res.status(StatusCodes.BAD_REQUEST).json({
             msg: 'Something went wrong in client creation',
-            errors: error,
+            errors: errorMessages,
         })
     }
 }

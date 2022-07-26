@@ -7,7 +7,7 @@ const {
     cadastrar_cliente_juridico,
 } = require('../../Controllers/Cadastro_Clientes/cadastro_cliente_juridico')
 
-const { verifyRoles } = require('../middleware/verifyRoles')
+const { verifyRoles } = require('../../middleware/verifyRoles')
 
 //Routes with role verification,
 //Only users with the role passed as a parameter can access the endpoint

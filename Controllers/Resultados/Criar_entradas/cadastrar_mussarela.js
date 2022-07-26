@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const { resultado_mussarela } = require('../../Data/models')
+const { resultado_mussarela } = require('../../../Data/models')
 
 const cadastrar_mussarela = async (req, res) => {
     const {
