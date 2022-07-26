@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const { cliente_fisico } = require('../../Data/models')
+const { cliente_fisico } = require('../../data/models')
 
 const cadastrar_cliente_fisico = async (req, res) => {
     // INPUTS QUE SÃO INSERIDOS PELO USUÁRIO

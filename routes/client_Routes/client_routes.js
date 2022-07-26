@@ -2,10 +2,10 @@ const express = require('express')
 const client_router = express.Router()
 const {
     cadastrar_cliente_fisico,
-} = require('../../Controllers/Cadastro_Clientes/cadastro_cliente_fisico')
+} = require('../../controllers/cadastro_Clientes/cadastro_cliente_fisico')
 const {
     cadastrar_cliente_juridico,
-} = require('../../Controllers/Cadastro_Clientes/cadastro_cliente_juridico')
+} = require('../../controllers/cadastro_cliente_juridico_Clientes/cadastro_cliente_juridico')
 
 const { verifyRoles } = require('../../middleware/verifyRoles')
 

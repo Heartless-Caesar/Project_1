@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const { cliente_juridico } = require('../../Data/models')
+const { cliente_juridico } = require('../../data/models')
 
 const cadastrar_cliente_juridico = async (req, res) => {
     const {
